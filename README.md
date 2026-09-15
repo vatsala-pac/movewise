@@ -68,9 +68,8 @@ Either way it's still the same web page under the hood — there's no offline mo
 <a id="features"></a>
 
 ## Features
-
-- **Plan from where you are** — an interactive live map (OpenStreetMap via Leaflet) centred on your real location, showing the nearest MRT/LRT station and bus stop with real walking distances, plus a walking-route line to whichever one you pick. Bus stops are LTA's real, complete stop locations (5,205 stops network-wide, from LTA's official bus stop dataset), and 4,771 of them (92%) show their real name — e.g. "West Grove Pr Sch" — from LTA's official BusStop shapefile, rather than a small hand-picked sample or a generic "Bus Stop [code]" label everywhere
-- Bus services shown per stop are grounded in real data at network scale: LTA's official Bus Routes export (27,324 real stop-service records) grounds 4,790 of the app's 5,205 bus stops (92%) with their genuine service list — the stop screen stays clean and focused on arrivals, with no "verified" badges or data-provenance disclosures cluttering the interface
+- **Plan from where you are** — an interactive live map (OpenStreetMap via Leaflet) centred on your real location, showing the nearest MRT/LRT station and bus stop with real walking distances, plus a walking-route line to whichever one you pick. Bus stops are LTA's real, complete stop locations (5,205 stops network-wide, from LTA's official bus stop dataset), and 4,771 of them (92%) show their real name — e.g. "West Grove Pr Sch" — from LTA's official BusStop shapefile
+- Bus services shown per stop are grounded in real data at network scale: LTA's official Bus Routes export (27,324 real stop-service records) 
 - Multi-modal routing — when your real location is used as the starting point, route options can combine a walk, a bus leg, and the MRT/LRT network, not just walk-to-station; every plan (multi-modal or not) now honestly includes the real walking time from your location to the boarding station, and choosing the nearest bus stop as your starting point (instead of the nearest station) is fully respected
 - Real 181-station MRT/LRT network graph with genuine shortest-path routing
 - Accessibility-aware trip planning (wheelchair/stroller/low-walking/minimal-stairs constraints)
