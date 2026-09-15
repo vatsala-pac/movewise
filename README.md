@@ -16,14 +16,6 @@ Most transport apps stop at telling you what's already happening: a train is del
 - **It never treats a disruption as a dead end.** A graph-based recovery engine finds a genuine alternate interchange, and a **Smart bus bridge** grounds the fallback in a real LTA bus service, a real stop, and a real walking distance — not a single hard-coded "take bus 66" message.
 - **It watches your stop even if you can't.** The "Notify me at my stop" alert (on the Route Details screen) arms a real countdown from your actual route, then fires a full-screen "This is your stop!" takeover, a phone vibration, an audible chime, and a browser notification when your stop is reached — so dozing off on a long ride doesn't mean missing it. A status bar showing stops remaining stays visible across every tab while it's armed.
 
-Every one of those claims is backed by real LTA data, not mocked placeholders: a genuine 181-station MRT/LRT network graph with real shortest-path routing, all 5,205 of LTA's official bus stops (92% with their real published names), 27,324 real stop-service records covering 509 real bus services, and a live lift/escalator outage feed that actually re-scores accessibility routing when a station's lift goes down. Where LTA's public export runs out — roughly the remaining 8% of stops — MoveWise says so plainly rather than quietly guessing, because a hackathon judge (or a real rider) should never have to wonder which numbers on screen are real.
-
-The whole thing ships as a single self-contained HTML file: no build step, no backend, no dependencies to install — open it in a browser, or add it to a phone's home screen for a true full-screen "installed app" feel with zero browser chrome. That was a deliberate choice, not a limitation: it keeps the entire prototype inspectable, forkable, and demo-able from a single link, which matters when judges only get a few minutes with your project.
-
-Design-wise, MoveWise commits to one clean, minimalist black-and-white system with color spent only where it carries real meaning — MRT line colors, live status states, crowd levels — rather than decoration. Every icon across the app (tab bar, map pins, settings, accessibility, wallet, and more) is a real Lucide line icon for one consistent visual identity from the first screen to the last, in Standard and Simple & Large accessibility modes, each with its own Light/Dark theme — built so the same app genuinely works for an elderly commuter who needs a seat and a student sprinting for a train, without maintaining two separate experiences.
-
-**Built for the "Most Unique" and "Best Aesthetics" categories** — a live network digital twin nobody else in the room will have built, disruption recovery that's honest about real vs. illustrative data, and an accessibility story that's actually wired into routing logic rather than a settings toggle that does nothing.
-
 ([back to top](#readme-top))
 
 ## What's in this repo
