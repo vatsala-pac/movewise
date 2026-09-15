@@ -4,8 +4,7 @@
 
 An interactive click-through prototype of **MoveWise**, a Smart Travel Companion app built for LTA's NEBULA X Hackathon ("Problem Statement 02 — Smart Travel Companion").
 
-**[Live demo →](https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/)** *(update this link once GitHub Pages is live — see setup steps below)*
-
+**[Live demo →](https://vatsala-pac.github.io/movewise/)** 
 ## About The Project
 
 **MoveWise** is a Smart Travel Companion app built for **LTA's NEBULA X Hackathon** — a direct response to Problem Statement 02, which calls for proactive, personalized decision support for Singapore's commuters instead of one-size-fits-all routing.
