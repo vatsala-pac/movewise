@@ -10,6 +10,10 @@ It understands **who is travelling, what they need, what has changed, and what t
 
 When a disruption, lift outage, crowding or weather condition affects a journey, MoveWise proactively recommends an alternative route tailored to the commuter — including the walking, bus and MRT legs needed to actually complete the journey.
 
+# 🌐 Live Demo
+
+**Live application:**
+`https://storage.googleapis.com/qwiklabs-gcp-03-b6b8c6bf731e-movewise/index.html`
 ---
 
 ## 👤 Meet Ginie
@@ -598,17 +602,6 @@ Then open the local development URL shown in your terminal.
 ```bash
 npm run build
 ```
-
----
-
-# 🌐 Live Demo
-
-**Live application:**
-`https://storage.googleapis.com/qwiklabs-gcp-03-b6b8c6bf731e-movewise/index.html`
-
-> The production deployment is hosted on Google Cloud for Nebula X judging.
-
----
 
 # 📚 Data Sources
 
