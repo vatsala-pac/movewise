@@ -1,58 +1,634 @@
-<a id="readme-top"></a>
+MoveWise ♿🚇
+Your journey shouldn't break just because the network does.
 
-# MoveWise — Smart Travel Companion
+MoveWise is a smart, accessibility-first commuter companion built for the LTA NEBULA X Hackathon — Problem Statement 2: Smart Commuter Companion.
 
-An interactive click-through prototype of **MoveWise**, a Smart Travel Companion app built for LTA's NEBULA X Hackathon ("Problem Statement 02 — Smart Travel Companion").
+MoveWise does more than tell commuters that something has gone wrong.
 
-**[Live demo →](https://vatsala-pac.github.io/movewise/)** 
-## About The Project
+It understands who is travelling, what they need, what has changed, and what they should do next.
 
-**MoveWise** is a Smart Travel Companion app built for **LTA's NEBULA X Hackathon** — a direct response to Problem Statement 02, which calls for proactive, personalized decision support for Singapore's commuters instead of one-size-fits-all routing.
+When a disruption, lift outage, crowding or weather condition affects a journey, MoveWise proactively recommends an alternative route tailored to the commuter — including the walking, bus and MRT legs needed to actually complete the journey.
 
-Most transport apps stop at telling you what's already happening: a train is delayed, a platform is crowded, a lift is out. By the time you see that, you're already stuck. MoveWise is built around a different premise — that a transit app should behave like it knows the network is *alive*, and knows *you*:
+👤 Meet Ginie
 
-- **It sees the whole system, not just your route.** [Transit Map](#features) renders every MRT/LRT line as a live animated digital twin — real stations in genuine sequence order, colored live by real crowd data, with disruptions visibly propagating across the network the moment they happen, not buried in a status list.
-- **It adapts to how you're feeling today, not a fixed profile.** [Comfort Mode](#features) computes a live Journey Comfort Score and offers a Fastest-vs-Most-Comfortable route choice, built around Singapore's own "May I Have A Seat, Please?" initiative — a rider states a need ("I may need to sit," "fewer transfers"), never a diagnosis.
-- **It never treats a disruption as a dead end.** A graph-based recovery engine finds a genuine alternate interchange, and a **Smart bus bridge** grounds the fallback in a real LTA bus service, a real stop, and a real walking distance — not a single hard-coded "take bus 66" message.
-- **It watches your stop even if you can't.** The "Notify me at my stop" alert (on the Route Details screen) arms a real countdown from your actual route, then fires a full-screen "This is your stop!" takeover, a phone vibration, an audible chime, and a browser notification when your stop is reached — so dozing off on a long ride doesn't mean missing it. A status bar showing stops remaining stays visible across every tab while it's armed.
+"I don't need another app to tell me there's a problem. I need to know what I'm supposed to do now."
 
-([back to top](#readme-top))
+Ginie, 20, is a polytechnic student rushing to her first real job — her internship.
 
+She's active, constantly moving around Singapore and rarely plans her day around transport disruptions. Between school, activities, friends and her internship, she depends heavily on Singapore's public transport network.
 
-## Deploying with GitHub Pages
+But being active also means injuries happen.
 
-This repo is set up to be served directly by GitHub Pages from the root of the default branch. In the repo's **Settings → Pages**, set the source to your default branch and the `/ (root)` folder — GitHub will publish `index.html` automatically.
+A sprained ankle.
 
-- **Quick way:** open the link with `?app=1` on the end, e.g. `https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/?app=1` — this strips every bit of outer page chrome immediately, no bezel, no page background, just the app filling the screen.
-- **Add to Home Screen (recommended):** this makes it launch in true "app mode" automatically — full-screen, no browser address bar at all, exactly like tapping a real installed app icon:
-  - **iOS (Safari):** open the link → tap the Share icon → **Add to Home Screen**.
-  - **Android (Chrome):** open the link → tap the ⋮ menu → **Add to Home screen** (or **Install app**, depending on your Chrome version).
-  - Once added, tap the new home screen icon (not the browser) to open it — the manifest and viewport-detection script automatically switch it into app-only mode, so you don't even need the `?app=1` link for this path.
+A sore knee.
 
-Either way it's still the same web page under the hood — there's no offline mode or native functionality, since this is a click-through design prototype — but visually and interaction-wise it reads as a standalone app, not a website.
+A minor injury that makes stairs painful.
 
-([back to top](#readme-top))
+A day when walking further than usual simply isn't realistic.
 
-<a id="features"></a>
+For Ginie, accessibility isn't always a permanent characteristic. Her mobility needs can change depending on the day.
 
-## Features
-- **Plan from where you are** — an interactive live map centred on your real location, showing the nearest MRT/LRT station and bus stop with real walking distances, plus a walking-route line to whichever one you pick. Bus stops are LTA's real, complete stop locations and show their real name — e.g. "West Grove Pr Sch" — from LTA's official BusStop shapefile
-- Bus services shown per stop are grounded in real data at network scale: LTA's official Bus Routes export (27,324 real stop-service records) 
-- Multi-modal routing — when your real location is used as the starting point, route options can combine a walk, a bus leg, and the MRT/LRT network, not just walk-to-station; every plan (multi-modal or not) now honestly includes the real walking time from your location to the boarding station, and choosing the nearest bus stop as your starting point (instead of the nearest station) is fully respected
-- Real 181-station MRT/LRT network graph with genuine shortest-path routing
-- Accessibility-aware trip planning (wheelchair/stroller/low-walking/minimal-stairs constraints)
-- **Comfort Mode** — a Journey Comfort Score, Fastest-vs-Most-Comfortable route comparison, and comfort-biased missed-transfer recovery, built around Singapore's "May I Have A Seat, Please?" sticker initiative
-- **MRT Live** and **Bus Live** as two distinct taskbar tabs — train line status, accessibility advisories, platform crowding and crowd forecast live under MRT Live; bus stop search, per-stop services and arrivals live under Bus Live — so each mode has its own clear, uncluttered home instead of one combined "Live" screen
-- **Transit Map** — shows a live animated digital twin of the whole system: every main line drawn as a schematic track with its real stations in genuine sequence order, a moving train indicator per line, and every station dot colored live by the same crowd data used everywhere else in the app; tap any station for its forecast. Flip "Simulate NSL disruption" and watch the affected line turn red/dashed and its stations visibly pulse in real time, right alongside MRT Live and Home
-- **Wallet** as the last taskbar tab — a stored-value transit card balance, top up by amount or custom entry, and link/unlink an eWallet (PayNow, GrabPay, Apple Pay) for instant top-ups; once an eWallet is linked, an auto top-up option (below a threshold) appears right underneath it — kept out of sight until there's actually something for it to draw from; a card-balance widget on Home jumps straight into it; a successful top-up shows a brief on-screen confirmation before the balance settles
-- **Smart bus bridge** — when a simulated line disruption is active, the recovery plan now includes a genuinely data-grounded bus bridge: the real nearest bus stop to the disrupted stretch (from real station coordinates), a real LTA bus service out of it, real walking distances to and from the bus stops, and an honest label for whether that service is confirmed to serve both ends of the bridge or just the closest real option out of the boarding stop
-- **Bus status** on Home — star a bus stop from Bus Live, or add/remove stops right on Home via an "Edit" toggle with an inline search box, to see next arrivals + live crowd level for each without leaving Home; tapping a saved stop takes you straight into Bus Live for it
-- Bus Live's per-stop arrivals use an SG Bus Timing–style always-visible 3-column grid — next 3 buses per service, bold minutes-to-arrival (or "Arr" in green once essentially at the stop) with a deck-type label underneath
-- Bus Live itself now shows your favourite stops right at the top of the Stops list (tap the star on any stop to save it), plus its own "Allow location access" prompt that lists the real bus stops nearest to you once granted — no need to go via Plan first, and granting it here is shared with Plan's own map card automatically
-- Live-style platform crowding, crowd forecasting, and "Near me" geolocation views
-- "Find my exit" destination-aware MRT exit recommendation
-- **"Notify me at my stop" alert** — arm it on the Route Details screen and it counts down in real time, then fires a full-screen "This is your stop!" takeover, a phone vibration pattern, an audible chime, and a browser notification once your stop is reached; a persistent status bar shows stops remaining on every tab while it's armed — built for anyone who might doze off on a longer ride
-- Two accessibility/appearance modes — Standard and Simple & Large (larger text, bigger tap targets, extra contrast) — each with its own Light/Dark theme
-- Minimalist black-and-white design system throughout, with color reserved only for real information (MRT line colors, service-status states)
+That's where MoveWise comes in.
 
-([back to top](#readme-top))
+Ginie's journey
+
+On a normal day:
+
+Home → MRT → Internship
+
+Simple.
+
+But imagine she is rushing to her internship with an injured ankle.
+
+She selects:
+
+♿ I need step-free access
+
+MoveWise adapts her journey around that requirement.
+
+Then, halfway through her trip, something changes:
+
+⚠️ Pioneer MRT lift is unavailable.
+
+A conventional journey planner might simply show the disruption.
+
+MoveWise asks:
+
+"How does this affect Ginie?"
+
+It recognises that a lift outage is significantly more important to someone who requires step-free access.
+
+Instead of leaving Ginie to figure it out herself, MoveWise searches for another way.
+
+For example:
+
+MRT → accessible bus connection → nearby station → functioning lift → destination
+
+The exact alternative is determined from available transport data rather than forcing every commuter onto the same route.
+
+The result
+
+Ginie doesn't have to stand on a platform searching through multiple apps while already running late.
+
+She gets:
+
+What happened
+Why her original route no longer works for her
+An accessible alternative
+Step-by-step instructions
+Additional travel time
+Walking distance
+Accessibility score
+The reason the alternative was selected
+
+MoveWise turns a disruption into a decision.
+
+🚨 The Problem
+
+Singapore's public transport network works extremely well on an ordinary day.
+
+The difficult journey is the one that isn't ordinary.
+
+A signal fault.
+
+A train disruption.
+
+A station exit closure.
+
+A broken lift.
+
+A sudden downpour.
+
+A crowded platform.
+
+A commuter with an injury.
+
+The information may already exist — but the commuter is still left to answer:
+
+"What am I supposed to do now?"
+
+The challenge brief asks for a commuter companion that is proactive, provides decision support, handles planned and unplanned events, and is tailored to the individual commuter.
+
+MoveWise is built around exactly that idea.
+
+💡 Our Solution
+
+MoveWise moves from:
+
+Reactive information
+
+"There is a disruption on the EWL."
+
+to:
+
+Proactive decision support
+
+"Your route is affected. Take this alternative instead. It adds 11 minutes and still meets your accessibility requirements."
+
+The difference is simple:
+
+We don't just tell you what happened.
+We tell you what to do next.
+✨ Key Features
+🗺️ Personalised Multi-Modal Routing
+
+MoveWise plans journeys from door to door, rather than simply from station to station.
+
+Routes can combine:
+
+🚶 Walking
+🚌 Bus
+🚇 MRT
+🚲 Cycling
+
+The route adapts to the commuter's selected preferences and current network conditions.
+
+The hackathon requires actual journey planning and revised routes when conditions change, including the walking legs at both ends of the journey.
+
+♿ Accessibility-Aware Routing
+
+Accessibility is not treated as a separate feature.
+
+It changes the route itself.
+
+Users can specify needs such as:
+
+Wheelchair
+Lift-only access
+Minimal walking
+Fewer stairs
+Step-free access
+
+MoveWise then considers these requirements when evaluating routes.
+
+Example
+
+A normal route may be:
+
+MRT → Pioneer MRT → destination
+
+But if the required Pioneer MRT lift is unavailable:
+
+❌ Normal route — inaccessible
+
+MoveWise can instead search for an alternative involving:
+
+🚌 Bus → accessible MRT station → functioning lift → destination
+
+The route's accessibility score changes accordingly.
+
+Accessibility principle
+
+The fastest route isn't always the most usable route.
+
+For someone who requires a lift, a route with a functioning lift can be more valuable than a shorter route that depends on a broken one.
+
+🧪 Lift Breakdown Simulation
+
+Because major disruptions may not occur during judging, MoveWise includes a clearly labelled demonstration mode.
+
+Pioneer MRT Lift Breakdown
+
+Toggle:
+
+OFF → Pioneer MRT operating normally
+
+ON → Pioneer MRT lift unavailable
+
+When the simulation is enabled, MoveWise treats the Pioneer MRT lift as unavailable and recalculates affected journeys.
+
+For wheelchair/lift-dependent users, the app searches for an alternative rather than simply displaying an outage notice.
+
+This allows judges to experience the accessibility-routing logic immediately.
+
+The hackathon brief explicitly allows replay/injected test data for demonstrating disruption scenarios, provided the simulation is clearly labelled.
+
+🔔 Proactive Disruption Alerts
+
+MoveWise doesn't wait for commuters to discover a disruption themselves.
+
+When an active journey is affected, MoveWise can notify the commuter and provide a revised route.
+
+Instead of:
+
+⚠️ EWL disruption
+
+MoveWise provides:
+
+⚠️ Your journey has been affected
+
+The route you planned is no longer suitable.
+
+We've found an alternative for you.
+
+🚌 Take Bus 193 🚇 Continue from Pioneer MRT ♿ Use the accessible entrance
+
++12 min
+
+Accessibility: 94/100
+
+The exact route and information are generated from the available transport data.
+
+🧠 Personalised Decision Support
+
+The same disruption can have completely different consequences for different commuters.
+
+For example:
+
+Commuter A
+
+No accessibility requirements.
+
+A lift outage may be a minor inconvenience.
+
+Commuter B
+
+Requires a wheelchair-accessible route.
+
+The same lift outage could make the station unusable.
+
+MoveWise therefore evaluates disruptions against the individual commuter, rather than treating every user the same.
+
+📊 Route Scoring
+
+MoveWise evaluates routes using multiple factors rather than simply choosing the shortest journey.
+
+Depending on the commuter's preferences, the route can consider:
+
+Factor	Why it matters
+Accessibility	Can the commuter physically use the route?
+Walking distance	Important for injured or mobility-constrained users
+Stairs	Avoided when required
+Lift availability	Critical for step-free users
+Transfers	Fewer transfers can reduce complexity
+Travel time	Helps commuters make time-sensitive decisions
+Bus availability	Provides alternatives during rail disruptions
+Crowding	Helps commuters avoid uncomfortable or difficult transfers
+Weather	Can influence walking and cycling decisions
+
+The result is a route that is optimised for the commuter, not simply the map.
+
+📍 Data & Technology
+
+MoveWise is built around real Singapore transport and geospatial data.
+
+LTA DataMall
+
+Relevant datasets include:
+
+TrainServiceAlerts
+BusArrival
+BusServices
+BusRoutes
+BusStops
+PCDRealTime
+PCDForecast
+v2/FacilitiesMaintenance
+TrainStation
+TrainStationExit
+BusStopLocation
+CoveredLinkWay
+CyclingPath
+Footpath
+
+The hackathon specifically identifies TrainServiceAlerts as the official structured train disruption feed and FacilitiesMaintenance as the source for MRT lift maintenance information.
+
+Bus arrival data also provides useful accessibility and crowding information, including wheelchair-accessible vehicle information and passenger load.
+
+OpenStreetMap
+
+OpenStreetMap provides the geospatial foundation for:
+
+Footpaths
+Crossings
+Stairs
+Lifts
+Covered walkways
+Cycling paths
+Pedestrian infrastructure
+
+OpenStreetMap is required as the geospatial base for this problem statement.
+
+© OpenStreetMap contributors
+
+OneMap
+
+Singapore's official mapping service can support:
+
+Geocoding
+Reverse geocoding
+Walking routes
+Cycling routes
+Public transport routing
+Weather
+
+Weather conditions can influence the walking portion of a journey.
+
+MoveWise can use Singapore's open government weather data to account for changing conditions.
+
+☁️ Google Cloud
+
+MoveWise is deployed on Google Cloud for the Nebula X judging environment.
+
+The application is designed to run as a publicly accessible web application so judges can access the working product without requiring the development environment on a local machine.
+
+Google Cloud services can support:
+
+Application hosting
+Scalable backend services
+API integration
+Secure environment variables
+Data processing
+AI capabilities where appropriate
+🏗️ Architecture
+text
+                    ┌──────────────────────┐
+                    │       MoveWise       │
+                    │   Mobile Web App     │
+                    └──────────┬───────────┘
+                               │
+                    ┌──────────▼───────────┐
+                    │   Routing Engine     │
+                    │                      │
+                    │ Personal preferences │
+                    │ Accessibility        │
+                    │ Travel time          │
+                    │ Walking              │
+                    │ Transfers            │
+                    └──────────┬───────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              │                │                │
+       ┌──────▼──────┐ ┌──────▼──────┐ ┌──────▼──────┐
+       │ LTA DataMall│ │ OpenStreetMap│ │   OneMap    │
+       │             │ │              │ │             │
+       │ Disruptions │ │ Footpaths    │ │ Geocoding   │
+       │ Bus data    │ │ Accessibility│ │ Routing     │
+       │ Lift data   │ │ Walkways     │ │             │
+       └─────────────┘ └──────────────┘ └─────────────┘
+                               │
+                    ┌──────────▼───────────┐
+                    │   Decision Support   │
+                    │                      │
+                    │ "What changed?"      │
+                    │ "Does it affect me?" │
+                    │ "What should I do?"  │
+                    └──────────────────────┘
+📱 Designed for Real Commuters
+
+MoveWise is mobile-first.
+
+A commuter should be able to use it:
+
+With one hand
+On a small screen
+While walking
+While standing on a platform
+In bright sunlight
+During a stressful disruption
+
+The challenge explicitly requires the application to be a mobile-first web application and notes that judging takes place on a real phone browser.
+
+The interface therefore prioritises:
+
+Clear → Immediate → Actionable
+
+rather than overwhelming the user with information.
+
+🎯 Our Design Philosophy
+1. Don't just report.
+
+Recommend.
+
+2. Don't assume everyone travels the same way.
+
+Personalise.
+
+3. Don't treat accessibility as an afterthought.
+
+Build it into routing.
+
+4. Don't wait for commuters to discover problems.
+
+Be proactive.
+
+5. Don't hide the trade-offs.
+
+Show the time, distance and accessibility impact.
+
+🚀 Example Journey
+Ginie's normal journey
+text
+HOME
+  │
+  ▼
+🚶 Walk
+  │
+  ▼
+🚇 MRT
+  │
+  ▼
+🏢 Internship
+Something changes
+text
+🚨 Pioneer MRT lift unavailable
+
+MoveWise detects:
+
+Ginie requires step-free access.
+
+Instead of continuing with the original route:
+
+text
+❌ Original route
+Pioneer MRT
+↓
+Unavailable lift
+↓
+Inaccessible
+
+MoveWise recalculates:
+
+text
+🚌 Alternative bus
+       ↓
+🚇 Accessible MRT station
+       ↓
+♿ Functioning lift
+       ↓
+🚇 Continue journey
+       ↓
+🏢 Internship
+
+And tells Ginie:
+
+Your route has changed because Pioneer MRT's lift is unavailable.
+
+We've found an accessible alternative.
+
++12 min ♿ 94/100 accessibility 🚶 450 m walking
+
+The goal isn't to make Ginie understand the transport network.
+
+The goal is to make her journey understandable.
+
+🧪 Demo Flow
+
+For judging, MoveWise can demonstrate the following scenario:
+
+Step 1
+
+Select:
+
+♿ Wheelchair / Lift Only
+
+Step 2
+
+Plan a journey that involves Pioneer MRT.
+
+Step 3
+
+Show the normal route.
+
+Step 4
+
+Enable:
+
+🧪 Simulate Pioneer MRT Lift Breakdown
+
+Step 5
+
+MoveWise identifies:
+
+🚨 Pioneer MRT lift unavailable
+
+Step 6
+
+The original route is downgraded for accessibility.
+
+Step 7
+
+MoveWise searches for an alternative route using available bus/MRT connections.
+
+Step 8
+
+The accessible alternative is presented with:
+
+Route instructions
+Accessibility score
+Travel-time difference
+Walking distance
+Reason for rerouting
+Step 9
+
+Turn the simulation OFF.
+
+The normal route becomes available again.
+
+🔐 Privacy & Security
+
+MoveWise is designed around the principle of minimising unnecessary personal data.
+
+API credentials should never be committed to the repository.
+
+Sensitive configuration should be stored using environment variables or secure cloud configuration.
+
+The hackathon also specifically requires teams to consider what commuter routine/location information is stored, where it is stored and for how long.
+
+🛠️ Getting Started
+Prerequisites
+Node.js
+npm
+A modern web browser
+Installation
+bash
+git clone <YOUR_REPOSITORY_URL>
+
+cd MoveWise
+
+npm install
+Run locally
+bash
+npm run dev
+
+Then open the local development URL shown in your terminal.
+
+Production build
+bash
+npm run build
+🌐 Live Demo
+
+Live application: <YOUR GOOGLE CLOUD URL>
+
+The production deployment is hosted on Google Cloud for Nebula X judging.
+
+📁 Project Structure
+text
+MoveWise/
+│
+├── public/
+│   └── ...
+│
+├── src/
+│   ├── components/
+│   ├── data/
+│   ├── routing/
+│   └── ...
+│
+├── index.html
+├── package.json
+├── README.md
+└── ...
+
+Update this section to match the final repository structure.
+
+📚 Data Sources
+
+MoveWise uses official and open data sources wherever possible.
+
+Source	Purpose
+LTA DataMall	Public transport, disruptions, buses, stations and maintenance
+OpenStreetMap	Pedestrian and geospatial data
+OneMap	Singapore mapping and routing
+data.gov.sg	Government open data and weather
+Google Cloud	Application deployment and cloud infrastructure
+
+All third-party data is used according to the relevant terms, licences and attribution requirements.
+
+🗺️ OpenStreetMap Attribution
+
+Map and geospatial data:
+
+© OpenStreetMap contributors
+
+OpenStreetMap data is licensed under the Open Data Commons Open Database License (ODbL).
+
+🌱 Why MoveWise?
+
+A disruption isn't the same problem for everyone.
+
+A broken lift might be a minor inconvenience for one commuter and a complete barrier for another.
+
+A 10-minute walk might be nothing on one day and impossible on another.
+
+A crowded platform might be acceptable to one person and overwhelming to another.
+
+MoveWise is built around that difference.
+
+Instead of asking:
+
+"What is the fastest route?"
+
+we ask:
+
+"What is the best route for this commuter, right now, given what is happening?"
+
+👥 Team
+
+Built for the LTA NEBULA X Hackathon
+
+Problem Statement 2 — Smart Commuter Companion
+
+❤️ MoveWise
+When the journey changes, MoveWise changes with you.
