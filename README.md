@@ -604,33 +604,9 @@ npm run build
 # 🌐 Live Demo
 
 **Live application:**
-`<YOUR GOOGLE CLOUD URL>`
+`https://storage.googleapis.com/qwiklabs-gcp-03-b6b8c6bf731e-movewise/index.html`
 
 > The production deployment is hosted on Google Cloud for Nebula X judging.
-
----
-
-# 📁 Project Structure
-
-```text
-MoveWise/
-│
-├── public/
-│   └── ...
-│
-├── src/
-│   ├── components/
-│   ├── data/
-│   ├── routing/
-│   └── ...
-│
-├── index.html
-├── package.json
-├── README.md
-└── ...
-```
-
-*Update this section to match the final repository structure.*
 
 ---
 
