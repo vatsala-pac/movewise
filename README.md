@@ -357,23 +357,6 @@ MoveWise can use Singapore's open government weather data to account for changin
 
 ---
 
-# ☁️ Google Cloud
-
-MoveWise is deployed on **Google Cloud** for the Nebula X judging environment.
-
-The application is designed to run as a publicly accessible web application so judges can access the working product without requiring the development environment on a local machine.
-
-Google Cloud services can support:
-
-* Application hosting
-* Scalable backend services
-* API integration
-* Secure environment variables
-* Data processing
-* AI capabilities where appropriate
-
----
-
 # 🏗️ Architecture
 
 ```text
@@ -581,18 +564,6 @@ The accessible alternative is presented with:
 Turn the simulation OFF.
 
 The normal route becomes available again.
-
----
-
-# 🔐 Privacy & Security
-
-MoveWise is designed around the principle of minimising unnecessary personal data.
-
-API credentials should never be committed to the repository.
-
-Sensitive configuration should be stored using environment variables or secure cloud configuration.
-
-The hackathon also specifically requires teams to consider what commuter routine/location information is stored, where it is stored and for how long.
 
 ---
 
