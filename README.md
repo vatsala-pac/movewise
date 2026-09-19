@@ -16,7 +16,9 @@ When a disruption, lift outage, crowding or weather condition affects a journey,
 
 [🚀 Open MoveWise](https://storage.googleapis.com/qwiklabs-gcp-03-b6b8c6bf731e-movewise/index.html)
 
-**App Demo::**
+## 🎥 Demo
+
+[▶️ Watch the MoveWise Demo](https://drive.google.com/file/d/1xgfgHulWlvoaRvzeSNdL58IflxE5qTL7/view?usp=sharing)
 
 ---
 
