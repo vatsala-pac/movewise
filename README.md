@@ -12,8 +12,12 @@ When a disruption, lift outage, crowding or weather condition affects a journey,
 
 # 🌐 Live Demo
 
-**Live application:**
-`https://storage.googleapis.com/qwiklabs-gcp-03-b6b8c6bf731e-movewise/index.html`
+**Web App Link:**
+
+[🚀 Open MoveWise](https://storage.googleapis.com/qwiklabs-gcp-03-b6b8c6bf731e-movewise/index.html)
+
+**App Demo::**
+
 ---
 
 ## 👤 Meet Ginie
